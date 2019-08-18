@@ -26,12 +26,16 @@ public class AuthenticationController {
 		
 		User userObj = userService.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		
-		if(userObj.getUsername().equals(user.getUsername())) {
-			return new ResponseEntity(HttpStatus.OK);
-		}
-		
-		return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity(HttpStatus.OK);
 	}
+	
+	@PostMapping
+	public ResponseEntity saveUser(@RequestBody User user) {
+		userService.saveUser(user);
+		
+		return new ResponseEntity(HttpStatus.CREATED);
+	}
+
 
 
 }

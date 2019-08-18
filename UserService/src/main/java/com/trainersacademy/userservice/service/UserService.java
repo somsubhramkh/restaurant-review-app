@@ -9,7 +9,7 @@ public interface UserService {
 	
 	public User registerUser(User user);
 	
-	public boolean updateUser(User user) throws UserNotFoundException;
+	public User updateUser(User user) throws UserNotFoundException;
 	
 	public List<User> listAllUsers();
 	

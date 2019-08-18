@@ -22,20 +22,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean updateUser(User user) throws UserNotFoundException {
+	public User updateUser(User user) throws UserNotFoundException {
 		
 		if(!userRepository.existsById(user.getUserId())) {
 			throw new UserNotFoundException();
 		}
 		
-		User updatedUser = userRepository.save(user);
-		
-		if(updatedUser==null) {
-			return false;
-		}
-		else {
-			return true;
-		}
+		return userRepository.save(user);
 		
 	}
 

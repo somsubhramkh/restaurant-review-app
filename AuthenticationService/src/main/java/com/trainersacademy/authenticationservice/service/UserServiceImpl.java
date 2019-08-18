@@ -1,11 +1,13 @@
 package com.trainersacademy.authenticationservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.trainersacademy.authenticationservice.domain.User;
 import com.trainersacademy.authenticationservice.exception.InvalidCredentialsException;
 import com.trainersacademy.authenticationservice.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -23,5 +25,13 @@ public class UserServiceImpl implements UserService {
 		
 		return user;
 	}
+
+
+	@Override
+	public User saveUser(User user) {
+		
+		return userRepository.save(user);
+	}
+
 
 }
